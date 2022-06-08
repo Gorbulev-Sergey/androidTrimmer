@@ -8,6 +8,8 @@ import android.text.TextWatcher;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     public Double oil() {
         Double petrol = Double.valueOf(pickerPetrolLiter.getValue()) + Double.valueOf("0." + pickerPetrolMililiter.getValue());
         Double x = Double.valueOf(String.valueOf(propotions[pickerProportion.getValue()]).replace("1/", ""));
-        return petrol / x;
+        // округляем до 3 знаков после запятой
+        return new BigDecimal(petrol / x).setScale(3, RoundingMode.HALF_EVEN).doubleValue();
     }
 }
