@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -23,7 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="Пропорция:" />
+            android:text="Пропорция:"
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -56,8 +57,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -65,7 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Бензин:" />
+            android:text="Бензин:"
+            android:textStyle="bold"/>
 
         <NumberPicker
             android:id="@+id/pickerPetrolLiter"
@@ -97,18 +99,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.1"
         android:background="@color/purple_200"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp">
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Нужно масла: " />
+            android:text="Нужно масла:"
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

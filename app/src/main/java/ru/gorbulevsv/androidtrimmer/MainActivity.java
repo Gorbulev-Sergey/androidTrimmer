@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         pickerProportion = findViewById(R.id.pickerProportion);
         pickerProportion.setDisplayedValues(propotions);
         pickerProportion.setMinValue(0);
