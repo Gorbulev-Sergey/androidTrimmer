@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setSupportActionBar(findViewById(R.id.toolbar));
+        getSupportActionBar().setTitle(R.string.app_description);
+
         textOil = findViewById(R.id.textOil);
         textOilMililiters = findViewById(R.id.textOilMililiters);
         textOil.addTextChangedListener(new TextWatcher() {

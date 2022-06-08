@@ -11,4 +11,15 @@
     <color name="white">#FFFFFFFF</color>
     <color name="dark">#343a40</color>
     <color name="secondary">#495057</color>
+
+    <color name="gray_purpul_blue">#303A52</color>
+    <color name="purpul_blue">#574B90</color>
+    <color name="purpul_blue_dark">#1a172b</color>
+    <color name="violet">#9E579D</color>
+    <color name="violet_dark">#3b203a</color>
+    <color name="rouse">#FC85AE</color>
+    <color name="rouse_dark">#82032f</color>
+    <color name="magnolia">#FEF0FF</color>
+
+    <color name="orange">#feb272</color>
 </resources>
