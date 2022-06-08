@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Расчёт масла</string>
     <string name="app_description">Расчёт масла для триммера</string>
+    <string name="privet">Привет</string>
 </resources>
