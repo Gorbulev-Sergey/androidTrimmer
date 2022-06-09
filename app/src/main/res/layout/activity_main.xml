@@ -28,8 +28,9 @@
         android:padding="20dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Нужно масла:"
             android:textColor="?attr/colorOnSecondary"
             android:textSize="16sp"
