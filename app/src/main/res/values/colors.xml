@@ -22,4 +22,10 @@
     <color name="magnolia">#FEF0FF</color>
 
     <color name="orange">#feb272</color>
+
+    <color name="one">#f2e6e8</color>
+    <color name="two">#fffafa</color>
+    <color name="three">#9E7676</color>
+    <color name="four">#825e5e</color>
+    <color name="five">#473333</color>
 </resources>
