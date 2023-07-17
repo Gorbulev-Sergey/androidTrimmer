@@ -1,8 +1,13 @@
 package ru.gorbulevsv.androidtrimmer;
 
+import static android.preference.PreferenceManager.*;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.NumberPicker;
@@ -14,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    SharedPreferences preferences;
     NumberPicker pickerProportion, pickerPetrolLiter, pickerPetrolMililiter;
     TextView textOil, textOilMililiters;
     String[] propotions = {"1/25", "1/30", "1/35", "1/40", "1/45", "1/50"};
@@ -22,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        preferences = getPreferences(Context.MODE_MULTI_PROCESS);
 
         setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setTitle(R.string.app_description);
@@ -36,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                textOilMililiters.setText(String.valueOf(Math.round(oil()*1000)));
+                textOilMililiters.setText(String.valueOf(Math.round(oil() * 1000)));
             }
 
             @Override
@@ -49,19 +57,29 @@ public class MainActivity extends AppCompatActivity {
         pickerProportion.setDisplayedValues(propotions);
         pickerProportion.setMinValue(0);
         pickerProportion.setMaxValue(propotions.length - 1);
-        pickerProportion.setValue(0);
-        pickerProportion.setOnValueChangedListener((numberPicker, i, value) -> textOil.setText(String.valueOf(oil())));
+        pickerProportion.setValue(preferences.getInt("propotions", 0));
+        pickerProportion.setOnValueChangedListener((numberPicker, i, value) -> {
+            textOil.setText(String.valueOf(oil()));
+            preferences.edit().putInt("propotions", i + 1).apply();
+        });
 
         pickerPetrolLiter = findViewById(R.id.pickerPetrolLiter);
         pickerPetrolLiter.setMinValue(0);
         pickerPetrolLiter.setMaxValue(100);
-        pickerPetrolLiter.setValue(5);
-        pickerPetrolLiter.setOnValueChangedListener((numberPicker, i, value) -> textOil.setText(String.valueOf(oil())));
+        pickerPetrolLiter.setValue(preferences.getInt("petrolLiter", 5));
+        pickerPetrolLiter.setOnValueChangedListener((numberPicker, i, value) -> {
+            textOil.setText(String.valueOf(oil()));
+            preferences.edit().putInt("petrolLiter", value).apply();
+        });
 
         pickerPetrolMililiter = findViewById(R.id.pickerPetrolMililiter);
         pickerPetrolMililiter.setMinValue(0);
         pickerPetrolMililiter.setMaxValue(9);
-        pickerPetrolMililiter.setOnValueChangedListener((numberPicker, i, value) -> textOil.setText(String.valueOf(oil())));
+        pickerPetrolMililiter.setValue(preferences.getInt("petrolMililiter", 0));
+        pickerPetrolMililiter.setOnValueChangedListener((numberPicker, i, value) -> {
+            textOil.setText(String.valueOf(oil()));
+            preferences.edit().putInt("petrolMililiter", value).apply();
+        });
 
         textOil.setText(String.valueOf(oil()));
     }
